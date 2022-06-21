@@ -1,2 +1,3 @@
 from csv_transformation import pick_attributes
-csv = pick_attributes("data/movies_metadata.csv")
+attributes_of_movies = pick_attributes(r"../data/movies_metadata.csv")
+print(attributes_of_movies)
