@@ -14,4 +14,6 @@ movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',
 b = double_list()
 for i in range(0,31,5):
     b.add_head(i)
-print(b.head_node.category, b.tail_node.category)
+b.add_head(656)
+b.add_tail(18)
+linked_list.printing_list(b)

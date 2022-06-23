@@ -56,22 +56,29 @@ class double_list:
         self.head_node = head_node
         self.tail_node = tail_node
 
-    def add_head(self,value):
-        if self.tail_node is None:
-            node = Node(value)
-            self.tail_node = node
-            if self.head_node is None:
-                self.add_tail(value)
-        else:
-            self.head_node.set_next_node(value)
-            self.head_node.set_prev_node(None)
-            self.head_node = Node(value)
+    def get_head_node(self):
+        return self.head_node
 
-    def add_tail(self,value):
+    def add_head(self,value):
+        new_head = Node(value)
+        current_node = self.head_node
+        if current_node is not None:
+            current_node.set_prev_node(new_head)
+            new_head.set_next_node(current_node)
+
+        self.head_node = new_head
+
+        if self.tail_node is None:
+            self.tail_node = new_head
+
+    def add_tail(self, value):
+        new_tail = Node(value)
+        current_node = self.tail_node
+        if current_node is not None:
+            current_node.set_next_node(new_tail)
+            new_tail.set_prev_node(current_node)
+
+        self.tail_node = new_tail
+
         if self.head_node is None:
-            node = Node(value)
-            self.head_node = node
-            if self.tail_node is None:
-                self.add_head(value)
-    # 1. Neukládají se další vložené uzly
-    # 2. Neaktualizují se pointery
+            self.head_node = new_tail
