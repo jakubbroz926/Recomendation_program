@@ -1,5 +1,5 @@
 import time
-from dl_list import Node,Double_List
+from dl_list import Node,double_list
 from heaps import Heap
 from csv_transformation import movies_attributes
 
