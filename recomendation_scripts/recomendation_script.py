@@ -39,7 +39,7 @@ def basic_menu():
     show_categories()
     entry = select_category()
     while entry in categories_of_films_numbers.keys():
-        print(dlinked_list_categories[entry-1].category_name)
+        print(dlinked_list_categories[entry-1].data.heap)
         # attributes_of_movies = movies_attributes(r"../data/movies_metadata.csv")
         # vypsání tří filmů
         answer = input("Are you satisfied? ")

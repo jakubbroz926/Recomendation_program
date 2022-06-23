@@ -1,11 +1,11 @@
+from heaps import Heap
+
+
 class Node:
 
-    def __init__(self,category_name,data = None):
-        self.category_name = category_name
-        self.data = data
+    pass
 
 
 class Double_List:
 
-    def __init__(self):
-        pass
+    pass
