@@ -3,11 +3,14 @@ from heaps import Heap
 
 class Node:
 
-    def __init__(self, category = None, data = Heap(), next_node = None,prev_node = None):
+    def __init__(self, category = None, data = Heap(), next_node = None, prev_node = None):
         self.category = category
         self.data = data
         self.next_node = next_node
         self.prev_node = prev_node
+
+    def get_data(self):
+        return self.data
 
     def get_category(self):
         return self.category
@@ -59,8 +62,8 @@ class double_list:
     def get_head_node(self):
         return self.head_node
 
-    def add_head(self,value):
-        new_head = Node(value)
+    def add_head(self,value,data):
+        new_head = Node(value,data)
         current_node = self.head_node
         if current_node is not None:
             current_node.set_prev_node(new_head)
@@ -71,8 +74,8 @@ class double_list:
         if self.tail_node is None:
             self.tail_node = new_head
 
-    def add_tail(self, value):
-        new_tail = Node(value)
+    def add_tail(self, value,data):
+        new_tail = Node(value,data)
         current_node = self.tail_node
         if current_node is not None:
             current_node.set_next_node(new_tail)
@@ -82,3 +85,15 @@ class double_list:
 
         if self.head_node is None:
             self.head_node = new_tail
+
+    def go_through(self, value, node = None):
+        if node is None:
+            current_node = self.head_node
+        else:
+            current_node = node
+        while current_node is not None:
+            category = current_node.get_category()
+            if category == value:
+                return current_node #Zde bylo bylo možné vrátit uzel
+            else:
+                current_node = current_node.get_next_node()

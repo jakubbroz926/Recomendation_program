@@ -1,5 +1,5 @@
 import time
-from dl_list import Node,double_list
+from dl_list import Node,double_list,linked_list
 from heaps import Heap
 from csv_transformation import movies_attributes
 
@@ -21,7 +21,8 @@ def show_categories():
 
 def select_category():
     num = int(input("Select category by typing the its number.\n:"))
-    return num
+    movie_category = categories_of_films_numbers.get(num)
+    return movie_category
 
 
 def goodbye():
@@ -29,23 +30,37 @@ def goodbye():
           "Bye.")
 
 
-def basic_menu():
-    # vytvoření dvojitého listu z kategorií
-    dlinked_list_categories = [Node(movie_genre) for movie_genre in movie_of_genres]
+def printing_categories(dl_list):
+    return linked_list.printing_list(dl_list)
+
+
+def main():
+    double_list_categories = double_list()
+    for letter, movie_of_genre in movie_of_genres:
+        double_list_categories.add_tail(movie_of_genre)
+    attributes_of_movies = movies_attributes(r"../data/movies_metadata.csv",double_list_categories)
+    #Při procházení seznamem filmu se načtou kategorie do kterých tento film spadá.
+    #Následně se film uloží jako list v dd listu do těch heapů se kterými má stejné kategorie.
+    # Zde vlezeme do funkce csv_trans:
+
+
     welcome_file = open("../data/welcome.txt", "r", encoding = "utf-8")
     print(welcome_file.read())
     welcome_file.close()
     # time.sleep(5) Add after finishing program
     show_categories()
     entry = select_category()
-    while entry in categories_of_films_numbers.keys():
-        print(dlinked_list_categories[entry-1].data.heap)
-        # attributes_of_movies = movies_attributes(r"../data/movies_metadata.csv")
-        # vypsání tří filmů
+    while entry in categories_of_films_numbers.values():
+        double_list_categories.go_through(entry)[0].get_heap_value()
         answer = input("Are you satisfied? ")
         if answer.lower() in ["y","yes"]:
             break
+        else:
+            entry = select_category()
     goodbye()
 
 
-basic_menu()
+if __name__ == "__main__":
+    main()
+    # attributes_of_movies = movies_attributes(r"../data/movies_metadata.csv")
+    # print(attributes_of_movies)

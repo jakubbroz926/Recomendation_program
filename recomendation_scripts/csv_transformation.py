@@ -12,9 +12,9 @@ def select_genres(genres_attr):
     return genres_of_movie
 
 
-def movies_attributes(file):
+def movies_attributes(file,double_list):
     """ Read the original file and prepare info about movies to be inserted into categories.(Double linked list)."""
-    with open(file, "r", newline = "", encoding = "utf-8")as csv_reader:
+    with open(file, mode = "r", newline = "", encoding = "utf-8")as csv_reader:
         movies = csv.DictReader(csv_reader)
         movies_info = list()
         for row in movies:
@@ -27,7 +27,16 @@ def movies_attributes(file):
                         float(row[info]) if info == "vote_average" and isinstance(row[info], str) else row[info])
             movie_info[-1], movie_info[1] = movie_info[1], movie_info[-1]
             movie_info[0], movie_info[2] = movie_info[2], movie_info[0]
-            movies_info.append(movie_info)
-            # Here could be function which inplements movie into heap
-    # print("Now films could be recommended."
-    #       "This recommendation is based on IMDb ratings.")
+            for genre in movie_info[2]:
+                node_of_double_list = double_list.go_through(genre)
+                node_of_double_list.get_data().insert_into_heap(movie_info)
+
+                # bude třeba vyřešit to jak uložit informace do heapu
+                #projdi mi můj dvojitý list, a tam kde se bude kategorie shodovat se žánrem filmu,
+                    #zadej do heap celý movie_info
+                    #když současný uzel není rovný hlavě dvojitého listu,
+                            #začni procházet list od tohoto uzlu
+    #Nebude třeba vytvářet žádný nový list movies_info, protože informace o filmu budou rovnou vkládány
+    # do heapu jako list
+
+    return movies_info
