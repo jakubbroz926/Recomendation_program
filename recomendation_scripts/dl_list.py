@@ -62,8 +62,8 @@ class double_list:
     def get_head_node(self):
         return self.head_node
 
-    def add_head(self,value,data):
-        new_head = Node(value,data)
+    def add_head(self,value):
+        new_head = Node(value)
         current_node = self.head_node
         if current_node is not None:
             current_node.set_prev_node(new_head)
@@ -74,8 +74,8 @@ class double_list:
         if self.tail_node is None:
             self.tail_node = new_head
 
-    def add_tail(self, value,data):
-        new_tail = Node(value,data)
+    def add_tail(self, value):
+        new_tail = Node(value)
         current_node = self.tail_node
         if current_node is not None:
             current_node.set_next_node(new_tail)

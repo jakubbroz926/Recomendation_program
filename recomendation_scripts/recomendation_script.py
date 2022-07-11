@@ -36,14 +36,11 @@ def printing_categories(dl_list):
 
 def main():
     double_list_categories = double_list()
-    for letter, movie_of_genre in movie_of_genres:
+    for movie_of_genre in movie_of_genres:
         double_list_categories.add_tail(movie_of_genre)
-    attributes_of_movies = movies_attributes(r"../data/movies_metadata.csv",double_list_categories)
-    #Při procházení seznamem filmu se načtou kategorie do kterých tento film spadá.
-    #Následně se film uloží jako list v dd listu do těch heapů se kterými má stejné kategorie.
-    # Zde vlezeme do funkce csv_trans:
-
-
+    movies_attributes(r"../data/movies_metadata.csv",double_list_categories)
+    #Zde je třeba všechny heapy sortovat dle ratingu filmu.
+    #Projdou se všechny kategorie dl listu a seřadí se.
     welcome_file = open("../data/welcome.txt", "r", encoding = "utf-8")
     print(welcome_file.read())
     welcome_file.close()
@@ -51,7 +48,9 @@ def main():
     show_categories()
     entry = select_category()
     while entry in categories_of_films_numbers.values():
-        double_list_categories.go_through(entry)[0].get_heap_value()
+        double_list_categories.go_through(entry).get_data().get_heap_value()
+        #Zde se vrátí uživateli seznamu filmů z vybrané kategorie,
+        #nesařazeno
         answer = input("Are you satisfied? ")
         if answer.lower() in ["y","yes"]:
             break
@@ -62,5 +61,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # attributes_of_movies = movies_attributes(r"../data/movies_metadata.csv")
-    # print(attributes_of_movies)

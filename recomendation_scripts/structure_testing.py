@@ -7,11 +7,7 @@ movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',
                    'Mystery', 'War', 'Music', 'Documentary',
                    'Western']
 
-# a = linked_list()
-# for movie in movie_of_genres:
-#     a.add_head(movie)
-
 b = double_list()
 for i in movie_of_genres:
-    b.add_tail(i)
+    b.add_tail(i, Heap())
 linked_list.printing_list(b)
