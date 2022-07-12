@@ -41,7 +41,7 @@ def main():
     movies_attributes(r"../data/movies_metadata.csv",double_list_categories)
     #Zde je třeba všechny heapy sortovat dle ratingu filmu.
     #Projdou se všechny kategorie dl listu a seřadí se.
-    double_list_categories.update_heaps()
+    double_list_categories.sort_the_categories()
     welcome_file = open("../data/welcome.txt", "r", encoding = "utf-8")
     print(welcome_file.read())
     welcome_file.close()

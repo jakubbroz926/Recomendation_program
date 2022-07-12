@@ -30,6 +30,6 @@ def movies_attributes(file,double_list):
             for genre in movie_info[2]:
                 node_of_double_list = double_list.go_through(genre)
                 try:
-                    node_of_double_list.get_data().insert_into_heap(movie_info)
+                    node_of_double_list.get_data().append(movie_info)
                 except AttributeError:
                     pass

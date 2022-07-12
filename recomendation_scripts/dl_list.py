@@ -1,9 +1,6 @@
-from heaps import Heap
-
-
 class Node:
 
-    def __init__(self, category = None, data = Heap(), next_node = None, prev_node = None):
+    def __init__(self, category = None, data = [], next_node = None, prev_node = None):
         self.category = category
         self.data = data
         self.next_node = next_node
@@ -98,8 +95,8 @@ class double_list:
             else:
                 current_node = current_node.get_next_node()
 
-    def update_heaps(self):
+    def sort_the_categories(self):
         current_node = self.head_node
         while current_node is not None:
-            current_node.get_data().heap_sort()
+            current_node.get_data().quicksort()
             current_node = current_node.get_next_node()
