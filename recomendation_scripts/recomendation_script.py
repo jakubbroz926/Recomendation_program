@@ -1,6 +1,5 @@
 import time
 from dl_list import Node,double_list,linked_list
-from heaps import Heap
 from csv_transformation import movies_attributes
 
 movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',

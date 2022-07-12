@@ -1,3 +1,4 @@
+from quicksort import quicksort
 class Node:
 
     def __init__(self, category = None, data = [], next_node = None, prev_node = None):
@@ -98,5 +99,6 @@ class double_list:
     def sort_the_categories(self):
         current_node = self.head_node
         while current_node is not None:
-            current_node.get_data().quicksort()
+            data_lst = current_node.get_data()
+            quicksort(data_lst,0,len(data_lst)-1)
             current_node = current_node.get_next_node()

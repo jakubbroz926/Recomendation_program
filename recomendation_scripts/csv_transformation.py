@@ -16,7 +16,6 @@ def movies_attributes(file,double_list):
     """ Read the original file and prepare info about movies to be inserted into categories.(Double linked list)."""
     with open(file, mode = "r", newline = "", encoding = "utf-8")as csv_reader:
         movies = csv.DictReader(csv_reader)
-        movies_info = list()
         for row in movies:
             movie_info = []
             for info in selected:
@@ -30,6 +29,6 @@ def movies_attributes(file,double_list):
             for genre in movie_info[2]:
                 node_of_double_list = double_list.go_through(genre)
                 try:
-                    node_of_double_list.get_data().append(movie_info)
+                    node_of_double_list.data.append(movie_info)
                 except AttributeError:
                     pass
