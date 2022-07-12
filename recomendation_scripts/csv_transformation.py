@@ -33,6 +33,3 @@ def movies_attributes(file,double_list):
                     node_of_double_list.get_data().insert_into_heap(movie_info)
                 except AttributeError:
                     pass
-
-
-    return movies_info

@@ -97,3 +97,10 @@ class double_list:
                 return current_node #Zde bylo bylo možné vrátit uzel
             else:
                 current_node = current_node.get_next_node()
+
+    def update_heaps(self):
+        current_node = self.head_node
+        while current_node is not None:
+            heap_str = current_node.get_data()
+            heap_str.heap_sort()
+            current_node = current_node.get_next_node()

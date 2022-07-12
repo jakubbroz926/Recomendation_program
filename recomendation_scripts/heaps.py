@@ -8,3 +8,6 @@ class Heap:
 
     def insert_into_heap(self,value):
         self.heap.append(value)
+
+    def heap_sort(self):
+        pass
