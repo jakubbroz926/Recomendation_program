@@ -1,11 +1,14 @@
 from quicksort import quicksort
 class Node:
 
-    def __init__(self, category = None, data = [], next_node = None, prev_node = None):
+    def __init__(self, category = None, data = list(), next_node = None, prev_node = None):
         self.category = category
         self.data = data
         self.next_node = next_node
         self.prev_node = prev_node
+
+    def add_data(self, value):
+        self.data.append(value)
 
     def get_data(self):
         return self.data
