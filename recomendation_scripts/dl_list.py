@@ -101,6 +101,5 @@ class double_list:
     def update_heaps(self):
         current_node = self.head_node
         while current_node is not None:
-            heap_str = current_node.get_data()
-            heap_str.heap_sort()
+            current_node.get_data().heap_sort()
             current_node = current_node.get_next_node()

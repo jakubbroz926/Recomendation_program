@@ -10,4 +10,4 @@ movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',
 b = double_list()
 for i in movie_of_genres:
     b.add_tail(i)
-linked_list.printing_list(b)
+b.update_heaps()
