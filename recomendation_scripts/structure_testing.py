@@ -5,3 +5,10 @@ movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',
                    'Thriller', 'Horror', 'History', 'Science Fiction',
                    'Mystery', 'War', 'Music', 'Documentary',
                    'Western']
+
+x = double_list()
+for cat in movie_of_genres:
+    x.add_tail(cat)
+node = x.go_through("Fantasy")
+node.add_data("Random movie")
+print(node.category,node.data)

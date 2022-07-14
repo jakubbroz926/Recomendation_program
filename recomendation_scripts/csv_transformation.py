@@ -28,4 +28,7 @@ def movies_attributes(file,double_list):
             movie_info[0], movie_info[2] = movie_info[2], movie_info[0]
             for genre in movie_info[2]:
                 node_of_double_list = double_list.go_through(genre)
-                node_of_double_list.add_data(movie_info)
+                try:
+                    node_of_double_list.add_data(movie_info)
+                except AttributeError:
+                    continue

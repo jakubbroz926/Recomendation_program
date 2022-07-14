@@ -38,8 +38,6 @@ def main():
     for movie_of_genre in movie_of_genres:
         double_list_categories.add_tail(movie_of_genre)
     movies_attributes(r"../data/movies_metadata.csv",double_list_categories)
-    #Zde je třeba všechny heapy sortovat dle ratingu filmu.
-    #Projdou se všechny kategorie dl listu a seřadí se.
     double_list_categories.sort_the_categories()
     welcome_file = open("../data/welcome.txt", "r", encoding = "utf-8")
     print(welcome_file.read())
@@ -48,9 +46,8 @@ def main():
     show_categories()
     entry = select_category()
     while entry in categories_of_films_numbers.values():
-        double_list_categories.go_through(entry).get_data().get_heap_value()
-        #Zde se vrátí uživateli seznamu filmů z vybrané kategorie,
-        #nesařazeno
+        our_movies = double_list_categories.go_through(entry).get_data()
+        print(our_movies[:10])
         answer = input("Are you satisfied? ")
         if answer.lower() in ["y","yes"]:
             break
