@@ -95,7 +95,7 @@ class double_list:
         while current_node is not None:
             category = current_node.get_category()
             if category == value:
-                return current_node #Zde bylo bylo možné vrátit uzel
+                return current_node
             else:
                 current_node = current_node.get_next_node()
 
@@ -103,5 +103,6 @@ class double_list:
         current_node = self.head_node
         while current_node is not None:
             data_lst = current_node.get_data()
-            current_node.data = quicksort(data_lst,0,len(data_lst)-1)
+            print(current_node.get_category())
+            quicksort(data_lst,0,len(data_lst)-1)
             current_node = current_node.get_next_node()

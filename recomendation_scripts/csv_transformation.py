@@ -24,6 +24,8 @@ def movies_attributes(file,double_list):
                 else:
                     movie_info.append(
                         float(row[info]) if info == "vote_average" and isinstance(row[info], str) else row[info])
+            if None in movie_info:
+                continue
             movie_info[-1], movie_info[1] = movie_info[1], movie_info[-1]
             movie_info[0], movie_info[2] = movie_info[2], movie_info[0]
             for genre in movie_info[2]:
