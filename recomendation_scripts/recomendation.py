@@ -42,7 +42,7 @@ def decision_tree(dl_list):
     movies = dl_list.go_through(entry).get_data()
     while movies:
         for i, movie in enumerate(movies):
-            print(movie[0], movie[1], movie[-1])
+            print(movie[0])
             if i == 2:
                 break
         # Prints the top three movies of genre.
@@ -68,12 +68,11 @@ def main():
     for movie_of_genre in movie_of_genres:
         double_list_categories.add_tail(movie_of_genre)
     # Create double list,where nodes are movie genres.
-    selected_year = int(input("From what year should the films be selected? \n:"))
+    selected_year = int(input("Since what year should the films be selected? \n:"))
     movies_attributes(r"../data/movies_metadata.csv", double_list_categories, selected_year)
     # Adds movies to their genres. Single movie could be in multiple genres.
     double_list_categories.sort_the_categories()
     # Sorting the movies from the best rated movie to the worst rated movie
-    time.sleep(2)
     show_categories()
     decision_tree(double_list_categories)
     goodbye()
