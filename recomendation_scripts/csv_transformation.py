@@ -2,6 +2,8 @@ import csv
 import json
 
 selected = ["genres", "overview", "title", "vote_average"]
+# I plan to add year release to the selected parameters of movie to avoid adding really old and irrelevant movies.
+# "release_date"
 
 
 def select_genres(genres_attr):
@@ -12,7 +14,7 @@ def select_genres(genres_attr):
     return genres_of_movie
 
 
-def movies_attributes(file,double_list):
+def movies_attributes(file, double_list):
     """ Read the original file and prepare info about movies to be inserted into categories.(Double linked list)."""
     with open(file, mode = "r", newline = "", encoding = "utf-8")as csv_reader:
         movies = csv.DictReader(csv_reader)
@@ -34,3 +36,5 @@ def movies_attributes(file,double_list):
                     node_of_double_list.add_data(movie_info)
                 except AttributeError:
                     continue
+                # This try solves the problem of adding movies, which contains None in their data,
+                # which complicates sorting.

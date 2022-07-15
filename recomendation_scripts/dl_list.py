@@ -1,4 +1,6 @@
 from quicksort import quicksort
+
+
 class Node:
 
     def __init__(self, category = None, next_node = None, prev_node = None):
@@ -25,7 +27,7 @@ class Node:
     def get_prev_node(self):
         return self.prev_node
 
-    def set_prev_node(self,value):
+    def set_prev_node(self, value):
         self.prev_node = value
 
 
@@ -63,7 +65,7 @@ class double_list:
     def get_head_node(self):
         return self.head_node
 
-    def add_head(self,value):
+    def add_head(self, value):
         new_head = Node(value)
         current_node = self.head_node
         if current_node is not None:
@@ -103,5 +105,5 @@ class double_list:
         current_node = self.head_node
         while current_node is not None:
             data_lst = current_node.get_data()
-            quicksort(data_lst,0,len(data_lst)-1)
+            quicksort(data_lst, 0, len(data_lst) - 1)
             current_node = current_node.get_next_node()

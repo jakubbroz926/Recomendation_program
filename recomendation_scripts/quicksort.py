@@ -5,6 +5,10 @@ sys.setrecursionlimit(1200)
 
 
 def quicksort(lst, start, end):
+    """Recursion was increased so the program would go without break
+by reaching the recursion limit.
+I used this quicksort function earlier in different program at much larger sample( around million),
+so any advice how improve is welcome"""
     if start >= end:
         return
     pivot_index = random.randrange(start, end)

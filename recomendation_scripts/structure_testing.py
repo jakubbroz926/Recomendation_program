@@ -4,3 +4,4 @@ movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',
                    'Thriller', 'Horror', 'History', 'Science Fiction',
                    'Mystery', 'War', 'Music', 'Documentary',
                    'Western']
+# This file was mainly used for testing double list
