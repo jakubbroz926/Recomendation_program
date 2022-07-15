@@ -5,4 +5,3 @@ you are ready, type the category. You could swap movies genres, read movie descr
 and go further in the movie genre. This program contains around 5 thousand movies and
 contains even very old movies. The movies are ordered by their ratings from the best to the worst,
 but at the top could be also unfamiliar movies.
-In the future we probably include the option to select movies since picked year.
