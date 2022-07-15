@@ -1,7 +1,7 @@
 import time
 from dl_list import Node, double_list, linked_list
 from csv_transformation import movies_attributes
-
+from tkinter import *
 movie_of_genres = ['Animation', 'Comedy', 'Family', 'Adventure',
                    'Fantasy', 'Romance', 'Drama', 'Action', 'Crime',
                    'Thriller', 'Horror', 'History', 'Science Fiction',
