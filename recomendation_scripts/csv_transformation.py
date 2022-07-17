@@ -1,7 +1,11 @@
 import csv
 import json
 
-selected = ["genres", "overview", "title", "vote_average"]
+selected = ["genres", "overview", "title", "release_date", "vote_average"]
+
+
+# I plan to add year release to the selected parameters of movie to avoid adding really old and irrelevant movies.
+# "release_date"
 
 
 def select_genres(genres_attr):
@@ -12,11 +16,14 @@ def select_genres(genres_attr):
     return genres_of_movie
 
 
-def movies_attributes(file):
-    """ Read the original file and prepare info about movies to be inserted into categories.(Double linked list)."""
-    with open(file, "r", newline = "", encoding = "utf-8")as csv_reader:
+def movies_attributes(file, double_list, selected_year = 1990):
+    """ Read the original file and prepare info about movies to be inserted into categories.(Double linked list).
+    :param file:
+    :param double_list:
+    :param selected_year:
+    """
+    with open(file, mode = "r", newline = "", encoding = "utf-8")as csv_reader:
         movies = csv.DictReader(csv_reader)
-        movies_info = list()
         for row in movies:
             movie_info = []
             for info in selected:
@@ -25,9 +32,22 @@ def movies_attributes(file):
                 else:
                     movie_info.append(
                         float(row[info]) if info == "vote_average" and isinstance(row[info], str) else row[info])
+            if None in movie_info:
+                continue
+            try:
+                date = int(movie_info[3][:4])
+            except ValueError:
+                continue
+            else:
+                if int(date) <= selected_year:
+                    continue
             movie_info[-1], movie_info[1] = movie_info[1], movie_info[-1]
             movie_info[0], movie_info[2] = movie_info[2], movie_info[0]
-            movies_info.append(movie_info)
-            # Here could be function which inplements movie into heap
-    # print("Now films could be recommended."
-    #       "This recommendation is based on IMDb ratings.")
+            for genre in movie_info[2]:
+                node_of_double_list = double_list.go_through(genre)
+                try:
+                    node_of_double_list.add_data(movie_info)
+                except AttributeError:
+                    continue
+                # This try solves the problem of adding movies, which contains None in their data,
+                # which complicates sorting.

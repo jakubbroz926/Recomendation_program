@@ -1,5 +1,7 @@
 Hi!! Welcome at our Total best movie recommender in the World!!!
 Your expectations will be fulfilled beyond your imagination.
 Think for a second, what kind a movie you would like to watch a when
-you are ready, type the category.
-
+you are ready, type the category. You could swap movies genres, read movie description,
+and go further in the movie genre. This program contains around 5 thousand movies and
+contains even very old movies. The movies are ordered by their ratings from the best to the worst,
+but at the top could be also unfamiliar movies.
